@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz</title>
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Producto</h1>
+        
+        <form id="productForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="codigo">Código del Producto</label>
+                    <input type="text" id="codigo" name="codigo" value="PROD01K" required 
+                        pattern="[A-Za-z0-9]{5,15}" 
+                        title="Entre 5 y 15 caracteres (letras y números)">
+                    <span class="error-message">Obligatorio, formato específico (letras, números), longitud 5-15 caracteres.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre del Producto</label>
+                    <input type="text" id="nombre" name="nombre" value="Set Comedor" required
+                        minlength="2" maxlength="50"
+                        title="Entre 2 y 50 caracteres">
+                    <span class="error-message">Obligatorio, longitud mínima de 2 y máxima de 50 caracteres.</span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bodega">Bodega</label>
+                    <select id="bodega" name="bodega" required>
+                        <option value="">Seleccionar</option>
+                        <option value="1" selected>Bodega 1</option>
+                        <option value="2">Bodega 2</option>
+                        <option value="3">Bodega 3</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sucursal">Sucursal</label>
+                    <select id="sucursal" name="sucursal" required>
+                        <option value="">Seleccionar</option>
+                        <option value="1">Sucursal 1</option>
+                        <option value="2" selected>Sucursal 2</option>
+                        <option value="3">Sucursal 3</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="moneda">Moneda</label>
+                    <select id="moneda" name="moneda" required>
+                        <option value="">Seleccionar</option>
+                        <option value="usd" selected>DÓLAR</option>
+                        <option value="eur">EURO</option>
+                        <option value="mxn">PESO</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" name="precio" value="1500" required
+                        min="0.01" step="0.01"
+                        title="Número positivo con hasta dos decimales">
+                    <span class="error-message">Obligatorio, formato de número positivo con hasta dos decimales.</span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group" style="flex: 0 0 100%;">
+                    <label>Material del Producto (Seleccionar al menos dos)</label>
+                    <div class="materials">
+                        <div class="material-item">
+                            <input type="checkbox" id="plastico" name="material[]" value="plastico" class="material-checkbox">
+                            <label for="plastico">Plástico</label>
+                        </div>
+                        <div class="material-item">
+                            <input type="checkbox" id="metal" name="material[]" value="metal" class="material-checkbox">
+                            <label for="metal">Metal</label>
+                        </div>
+                        <div class="material-item">
+                            <input type="checkbox" id="madera" name="material[]" value="madera" class="material-checkbox" checked>
+                            <label for="madera">Madera</label>
+                        </div>
+                        <div class="material-item">
+                            <input type="checkbox" id="vidrio" name="material[]" value="vidrio" class="material-checkbox" checked>
+                            <label for="vidrio">Vidrio</label>
+                        </div>
+                        <div class="material-item">
+                            <input type="checkbox" id="textil" name="material[]" value="textil" class="material-checkbox">
+                            <label for="textil">Textil</label>
+                        </div>
+                    </div>
+                    <span id="material-error" style="color: red; font-size: 12px; display: none;">Seleccione al menos dos materiales.</span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group" style="flex: 0 0 100%;">
+                    <label for="descripcion">Descripción del Producto</label>
+                    <textarea id="descripcion" name="descripcion" required
+                            minlength="10" maxlength="1000"
+                            title="Entre 10 y 1000 caracteres">Elegante set de comedor de madera natural, incluye mesa y sillas. Diseño clásico y duradero, ideal para cualquier estilo de decoración. Perfecto para cenas familiares y reuniones sociales.</textarea>
+                    <span class="error-message">Obligatorio, longitud mínima de 10 y máxima de 1000 caracteres.</span>
+                </div>
+            </div>
+            
+            <div class="form-submit">
+                <button type="submit">Guardar Producto</button>
+            </div>
+        </form>
+    </div>
+    <script src="Script.js"></script>
+</body>
+</html>
